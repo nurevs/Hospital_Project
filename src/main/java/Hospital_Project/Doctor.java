@@ -1,6 +1,8 @@
 package Hospital_Project;
 
-public class Doctor {
+import javax.xml.crypto.Data;
+
+public class Doctor  extends DataBank {
 
     private String isim;
     private String soyIsim;

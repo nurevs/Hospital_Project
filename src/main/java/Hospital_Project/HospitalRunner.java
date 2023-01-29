@@ -6,7 +6,7 @@ public class HospitalRunner {
 
     private static Hospital hastane1 = new Hospital ();
     Doctor doktor = new Doctor();
-    Patient hasta = new Patient();
+   // Patient hasta = new Patient();
 
     public HospitalRunner() {
     }
@@ -35,7 +35,7 @@ public class HospitalRunner {
     }
     private static Patient hastaBul(String aktuelDurum) {
        Patient hasta=new Patient();
-       Status durum=new Status();
+      /// Status durum=new Status();
 
         for (int i = 0; i <hastane1.hastaIsimleri.length ; i++) {
             hasta.setIsim(hastane1.hastaIsimleri[i]);
@@ -51,7 +51,7 @@ public class HospitalRunner {
 
     private static Status hastaDurumuBul(String aktuelDurum){
 
-        Status aktuelDurum1 = new Status();
+       // Status aktuelDurum1 = new Status();
         boolean aciliyet;
 
         switch (aktuelDurum) {

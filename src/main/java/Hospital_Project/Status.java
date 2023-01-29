@@ -4,6 +4,12 @@ public class Status {
     private String aktuelDurum;
     private boolean aciliyet;
 
+
+    public Status(String aktuelDurum, boolean aciliyet) {
+        this.aktuelDurum = aktuelDurum;
+        this.aciliyet = aciliyet;
+    }
+
     public String getAktuelDurum() {
         return aktuelDurum;
     }
@@ -20,5 +26,11 @@ public class Status {
         this.aciliyet = aciliyet;
     }
 
-
+    @Override
+    public String toString() {
+        return "Status{" +
+                "aktuelDurum='" + aktuelDurum + '\'' +
+                ", aciliyet=" + aciliyet +
+                '}';
+    }
 }
