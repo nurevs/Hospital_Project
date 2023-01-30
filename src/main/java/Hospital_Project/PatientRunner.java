@@ -130,7 +130,18 @@ public class PatientRunner {
     private static void hastaEkle() {
     }
 
-    private static void hastaBulma() {
+    private static void hastaBulma() throws InterruptedException {
+        Patient hasta=new Patient();
+        /// Status durum=new Status();
+
+        for (int i = 0; i <DataBank.hastaIsimleri.length ; i++) {
+            hasta.setIsim(DataBank.hastaIsimleri[i]);
+            hasta.setSoyIsim(DataBank.hastaSoyIsimleri[i]);
+            //hasta.setHastaID(Integer.parseInt(aktuelDurum));//emin degiliz
+
+
+        }
+
     }
 
     private static void anaMenu() {

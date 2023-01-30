@@ -14,6 +14,13 @@ public class Patient extends DataBank{
         this.hastaDurumu = hastaDurumu;
     }
 
+
+
+    public Patient() {
+
+    }
+
+
     public String getIsim() {
         return isim;
     }

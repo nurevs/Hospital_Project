@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class DoctorRunner {
+public class DoctorRunner  {
 
     static Scanner input = new Scanner(System.in);
     static Map<String, String> doktorListesiMap = new HashMap<>();
@@ -75,6 +75,14 @@ public class DoctorRunner {
     }
 
     private static void doktorBul() {
+        Doctor doktor =new Doctor();
+        for (int i = 0; i <DataBank.unvanlar.length ; i++) {
+            doktor.setIsim(DataBank.doctorIsimleri[i]);
+            doktor.setSoyIsim(DataBank.doctorSoyIsimleri[i]);
+            doktor.setUnvan(DataBank.unvanlar[i]);
+
+        }
+        System.out.println(DataBank.doctorIsimleri);
     }
     private static void doktorSil() {
     }

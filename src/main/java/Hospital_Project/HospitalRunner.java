@@ -2,6 +2,8 @@ package Hospital_Project;
 
 import javax.print.Doc;
 
+import static Hospital_Project.HospitalIslem.hastaneMenusu;
+
 public class HospitalRunner {
 
     private static Hospital hastane1 = new Hospital ();
@@ -11,43 +13,43 @@ public class HospitalRunner {
     public HospitalRunner() {
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        String hastaDurumu="Allerji ";
-        String unvan=doktorunvan(hastaDurumu) ;
-        doktorBul(unvan);
-
-
+       PatientRunner pR=new PatientRunner();
+       DoctorRunner dR=new DoctorRunner();
+        hastaneMenusu();
 
 
 
-    }
 
-    private static Doctor doktorBul(String unvan) {
-        Doctor doktor =new Doctor();
-        for (int i = 0; i <hastane1.unvanlar.length ; i++) {
-            doktor.setIsim(hastane1.doctorIsimleri[i]);
-            doktor.setSoyIsim(hastane1.doctorSoyIsimleri[i]);
-            doktor.setUnvan(unvan);
-
-        }
-        return doktor;
-    }
-    private static Patient hastaBul(String aktuelDurum) {
-       Patient hasta=new Patient();
-      /// Status durum=new Status();
-
-        for (int i = 0; i <hastane1.hastaIsimleri.length ; i++) {
-            hasta.setIsim(hastane1.hastaIsimleri[i]);
-            hasta.setSoyIsim(hastane1.hastaSoyIsimleri[i]);
-            hasta.setHastaID(Integer.parseInt(aktuelDurum));//emin degiliz
-            hastaDurumuBul(aktuelDurum).setAktuelDurum(aktuelDurum); //Emin DEgiliz
-
-        }
-
-        return hasta;
 
     }
+
+//    private static Doctor doktorBul(String unvan) {
+//        Doctor doktor =new Doctor();
+//        for (int i = 0; i <hastane1.unvanlar.length ; i++) {
+//            doktor.setIsim(hastane1.doctorIsimleri[i]);
+//            doktor.setSoyIsim(hastane1.doctorSoyIsimleri[i]);
+//            doktor.setUnvan(unvan);
+//
+//        }
+//        return doktor;
+//    }
+//    private static Patient hastaBul(String aktuelDurum) {
+//       Patient hasta=new Patient();
+//      /// Status durum=new Status();
+//
+//        for (int i = 0; i <hastane1.hastaIsimleri.length ; i++) {
+//            hasta.setIsim(hastane1.hastaIsimleri[i]);
+//            hasta.setSoyIsim(hastane1.hastaSoyIsimleri[i]);
+//            hasta.setHastaID(Integer.parseInt(aktuelDurum));//emin degiliz
+//            hastaDurumuBul(aktuelDurum).setAktuelDurum(aktuelDurum); //Emin DEgiliz
+//
+//        }
+//
+//        return hasta;
+//
+//    }
 
 //    private static Status hastaDurumuBul(String aktuelDurum){
 //
@@ -81,7 +83,7 @@ public class HospitalRunner {
 //        return aktuelDurum1;
 
 
-    }
+    //}
 
     private static String doktorunvan(String hastaDurumu) {
 
