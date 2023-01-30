@@ -49,36 +49,36 @@ public class HospitalRunner {
 
     }
 
-    private static Status hastaDurumuBul(String aktuelDurum){
-
-       // Status aktuelDurum1 = new Status();
-        boolean aciliyet;
-
-        switch (aktuelDurum) {
-            case "Allerji":
-                aciliyet = false;
-                break;
-            case "Bas Agrisi":
-                aciliyet = false;
-                break;
-            case "Diabet":
-                aciliyet = false;
-                break;
-            case "Soguk Alginligi":
-                aciliyet = false;
-                break;
-            case "Migren":
-                aciliyet = true;
-                break;
-            case "Kalp hastaliklari":
-                aciliyet = true;
-                break;
-            default:
-                System.out.println("Gecerli bir durum degil");
-
-
-        }
-        return aktuelDurum1;
+//    private static Status hastaDurumuBul(String aktuelDurum){
+//
+//       // Status aktuelDurum1 = new Status();
+//        boolean aciliyet;
+//
+//        switch (aktuelDurum) {
+//            case "Allerji":
+//                aciliyet = false;
+//                break;
+//            case "Bas Agrisi":
+//                aciliyet = false;
+//                break;
+//            case "Diabet":
+//                aciliyet = false;
+//                break;
+//            case "Soguk Alginligi":
+//                aciliyet = false;
+//                break;
+//            case "Migren":
+//                aciliyet = true;
+//                break;
+//            case "Kalp hastaliklari":
+//                aciliyet = true;
+//                break;
+//            default:
+//                System.out.println("Gecerli bir durum degil");
+//
+//
+//        }
+//        return aktuelDurum1;
 
 
     }

@@ -36,6 +36,7 @@ public class DoctorRunner {
         switch (tercih) {
             case 1:
                 doktorEkle();
+                doktorListesiYazdirma();
                 doktorMenu();
                 break;
             case 2:
@@ -48,6 +49,7 @@ public class DoctorRunner {
                 break;
             case 4:
                 doktorSil();
+                doktorListesiYazdirma();
                 doktorMenu();
                 break;
             case 5:
@@ -65,7 +67,9 @@ public class DoctorRunner {
 
     }
 
-    private static void doktorEkle() {
+    private static void doktorEkle(
+
+    ) {
     }
     private static void doktorListesiYazdirma() {
     }
