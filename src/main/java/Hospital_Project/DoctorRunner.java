@@ -1,25 +1,50 @@
 package Hospital_Project;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import javax.xml.crypto.Data;
+import java.util.*;
+import java.util.InputMismatchException;
 
 public class DoctorRunner  {
 
     static Scanner input = new Scanner(System.in);
-    static Map<String, String> doktorListesiMap = new HashMap<>();
+   static Map<String, String> doktorListesiMap = new HashMap<>();
+    static List <String >doktorListesi = new ArrayList<>();
 
     public static void doktorListesiMap() {
+
+
+//        doktorListesi.add("Allergist: Nilson Avery\n");
+//        doktorListesi.add("Norolog");
+//        doktorListesi.add("Genel cerrah");
+//        doktorListesi.add("Cocuk doktoru");
+//        doktorListesi.add("Dahiliye");
+//        doktorListesi.add("Kardiolog");
+
+
+
+
         doktorListesiMap.put("Allergist", "Nilson, Avery");
         doktorListesiMap.put("Norolog", "John, Abel");
         doktorListesiMap.put("Genel cerrah", "Robert, Erik");
         doktorListesiMap.put("Cocuk doktoru", "Marry, Jacob");
         doktorListesiMap.put("Dahiliye", "Alan, Pedro");
         doktorListesiMap.put("Kardiolog", "Mahesh, Tristen");
+        Set set=doktorListesiMap.entrySet();
+
+        Iterator i=set.iterator();
+        while(i.hasNext()){
+            Map.Entry me=(Map.Entry) i.next();
+            System.out.println(me.getKey()+ " : "+ me.getValue());
+        }
+
+
+        //System.out.println(doktorListesiMap);
+
+
 
     }
 
-    public static void doktorMenu() throws InterruptedException {
+    public static void doktorMenu() throws InputMismatchException {
 
         Scanner input = new Scanner(System.in);
         System.out.println("*************** DOKTOR MENUSU ***************\n" +
@@ -67,22 +92,60 @@ public class DoctorRunner  {
 
     }
 
-    private static void doktorEkle(
+    private static void doktorEkle() throws InputMismatchException{
+        Scanner input = new Scanner(System.in);
+        Doctor doktor = new Doctor();
 
-    ) {
+        String unvan = null;
+        try {
+            System.out.println("Doktor unvani giriniz: ");
+            unvan = input.nextLine();
+        } catch (InputMismatchException e) {
+            System.out.println("Lutfen gecerli bir islem giriniz."+e.getMessage());
+            e.printStackTrace();
+        }
+        String isim = null;
+        try {
+            System.out.println("Doktor adı ve soyadi giriniz: ");
+            isim = input.nextLine();
+        } catch (InputMismatchException e) {
+            System.out.println("Lutfen gecerli bir islem giriniz.");
+        }
+
+
+        doktorListesiMap.put(unvan, isim);
+
     }
     private static void doktorListesiYazdirma() {
+
+        doktorListesiMap();
+
     }
 
     private static void doktorBul() {
         Doctor doktor =new Doctor();
-        for (int i = 0; i <DataBank.unvanlar.length ; i++) {
-            doktor.setIsim(DataBank.doctorIsimleri[i]);
-            doktor.setSoyIsim(DataBank.doctorSoyIsimleri[i]);
-            doktor.setUnvan(DataBank.unvanlar[i]);
+        System.out.println("Aramak istediginiz doktorun unvanini giriniz: ");
+        String unvan = input.nextLine();
+        Set<String > doktorKey=doktorListesiMap.keySet();
 
+        for (String key : doktorListesiMap.keySet()) {
+           String value = doktorListesiMap.get(key);
+           if (value==doktorListesiMap.get(key)) {
+               System.out.println(DataBank.doctorIsimleri);
+           }
         }
-        System.out.println(DataBank.doctorIsimleri);
+//        for (int i = 0; i <doktorListesiMap.size() ; i++)
+//        {
+//            if ( doktorListesiMap.containsValue(unvan)){
+//                System.out.println("Var");
+//            }else
+//                System.out.println("Lutfen gecerli bir islem giriniz.");
+////            doktor.setIsim(DataBank.doctorIsimleri[i]);
+////            doktor.setSoyIsim(DataBank.doctorSoyIsimleri[i]);
+////            doktor.setUnvan(DataBank.unvanlar[i]);
+//
+//        }
+       // System.out.println(DataBank.doctorIsimleri);
     }
     private static void doktorSil() {
     }
