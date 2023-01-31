@@ -4,24 +4,14 @@ import javax.xml.crypto.Data;
 import java.util.*;
 import java.util.InputMismatchException;
 
-public class DoctorRunner  {
+public class DoctorRunner {
+    static Map<String, String> doktorListesi = new HashMap<>();
 
     static Scanner input = new Scanner(System.in);
-   static Map<String, String> doktorListesiMap = new HashMap<>();
-    static List <String >doktorListesi = new ArrayList<>();
+    static Map<String, String> doktorListesiMap = new HashMap<>();
+    //  static List <String >doktorListesi = new ArrayList<>();
 
     public static void doktorListesiMap() {
-
-
-//        doktorListesi.add("Allergist: Nilson Avery\n");
-//        doktorListesi.add("Norolog");
-//        doktorListesi.add("Genel cerrah");
-//        doktorListesi.add("Cocuk doktoru");
-//        doktorListesi.add("Dahiliye");
-//        doktorListesi.add("Kardiolog");
-
-
-
 
         doktorListesiMap.put("Allergist", "Nilson, Avery");
         doktorListesiMap.put("Norolog", "John, Abel");
@@ -29,17 +19,17 @@ public class DoctorRunner  {
         doktorListesiMap.put("Cocuk doktoru", "Marry, Jacob");
         doktorListesiMap.put("Dahiliye", "Alan, Pedro");
         doktorListesiMap.put("Kardiolog", "Mahesh, Tristen");
-        Set set=doktorListesiMap.entrySet();
+        Set set = doktorListesiMap.entrySet();
 
-        Iterator i=set.iterator();
-        while(i.hasNext()){
-            Map.Entry me=(Map.Entry) i.next();
-            System.out.println(me.getKey()+ " : "+ me.getValue());
+        Iterator i = set.iterator();
+
+        while (i.hasNext()) {
+            Map.Entry me = (Map.Entry) i.next();
+            System.out.println(me.getKey() + " : " + me.getValue());
         }
 
 
         //System.out.println(doktorListesiMap);
-
 
 
     }
@@ -92,7 +82,7 @@ public class DoctorRunner  {
 
     }
 
-    private static void doktorEkle() throws InputMismatchException{
+    private static void doktorEkle() throws InputMismatchException {
         Scanner input = new Scanner(System.in);
         Doctor doktor = new Doctor();
 
@@ -101,7 +91,7 @@ public class DoctorRunner  {
             System.out.println("Doktor unvani giriniz: ");
             unvan = input.nextLine();
         } catch (InputMismatchException e) {
-            System.out.println("Lutfen gecerli bir islem giriniz."+e.getMessage());
+            System.out.println("Lutfen gecerli bir islem giriniz." + e.getMessage());
             e.printStackTrace();
         }
         String isim = null;
@@ -116,6 +106,7 @@ public class DoctorRunner  {
         doktorListesiMap.put(unvan, isim);
 
     }
+
     private static void doktorListesiYazdirma() {
 
         doktorListesiMap();
@@ -123,17 +114,58 @@ public class DoctorRunner  {
     }
 
     private static void doktorBul() {
-        Doctor doktor =new Doctor();
-        System.out.println("Aramak istediginiz doktorun unvanini giriniz: ");
-        String unvan = input.nextLine();
-        Set<String > doktorKey=doktorListesiMap.keySet();
 
-        for (String key : doktorListesiMap.keySet()) {
-           String value = doktorListesiMap.get(key);
-           if (value==doktorListesiMap.get(key)) {
-               System.out.println(DataBank.doctorIsimleri);
-           }
+        Scanner input = new Scanner(System.in);
+        System.out.println("``````````````unvandan doktor bulma```````````````");
+        System.out.println("aradiginiz doktorun unvanini giriniz");
+        String arananUnvan = input.nextLine();
+
+        for (Map.Entry<String,String >w:doktorListesiMap.entrySet()) {
+            if (w.getKey().equals(arananUnvan)) {}
+            System.out.println("hggh"+w);
         }
+
+//        Set<String> doktor = doktorListesiMap.keySet();
+//        for (int i = 0; i < doktorListesiMap.size(); i++) {
+//            if (doktor.toArray()[i].equals(arananUnvan)) {
+//                System.out.println("doktor"+doktor.toArray()[i]);
+//
+//            }
+//        }
+
+        // Set <Map.Entry<String,String>>doktor=doktorListesi.entrySet();
+
+
+//        for (Map.Entry<String, String> stringStringEntry : doktor) {
+//            String eachKey= stringStringEntry.getKey();
+//            String eachval= stringStringEntry.getValue();
+//            String valarr []=eachval.split(",");
+//            if (eachKey.contains(arananUnvan)){
+//                System.out.println(eachKey);
+//                System.out.println(eachval);
+//                System.out.println(valarr[0] + " " + valarr[1]);
+//                a = true;
+//                break;
+//            }
+//        }
+//        if (!a) {
+//            System.out.println("Aradiginiz unvana sahip doktor bulunamadi.");
+//            System.out.println("lutfen yeniden deneyiniz");
+//            doktorBul();
+//        }
+
+//        Doctor doktor =new Doctor();
+//        System.out.println("Aramak istediginiz doktorun unvanini giriniz: ");
+//        String unvan = input.nextLine();
+//       // Set<String > doktorKey=doktorListesiMap.keySet();
+//
+//        for (String key : doktorListesiMap.keySet()) {
+//           String value = doktorListesiMap.get(key);
+//
+//           if (unvan==key) {
+//               System.out.println(DataBank.doctorIsimleri);
+//           }
+//        }
 //        for (int i = 0; i <doktorListesiMap.size() ; i++)
 //        {
 //            if ( doktorListesiMap.containsValue(unvan)){
@@ -145,12 +177,47 @@ public class DoctorRunner  {
 ////            doktor.setUnvan(DataBank.unvanlar[i]);
 //
 //        }
-       // System.out.println(DataBank.doctorIsimleri);
+        // System.out.println(DataBank.doctorIsimleri);
     }
+
     private static void doktorSil() {
+        System.out.println("silmek istediginiz doktorun unvanini giriniz");
+        String arananunvan = input.nextLine();
+        Set<String> keySet = doktorListesiMap.keySet();
+
+        for(int i=0;i<DataBank.unvanlar.length;i++){
+
+            if(DataBank.unvanlar[i].equals(arananunvan)){
+                doktorListesiMap.remove(keySet);
+                System.out.println("silindi");
+
+            }
+        }
+
+//        for (int i = 0; i < doktorListesiMap.size(); i++) {
+//            if (arananunvan.equals(keySet)) {
+//                keySet.remove(arananunvan);
+//                System.out.println(arananunvan + " unvandaki doktor silinmistir.");
+//            }
+//        }
+//        boolean a=false;
+//        if (doktorListesi.containsKey(arananunvan)) {
+//            doktorListesi.remove(arananunvan);
+//           doktorListesiMap();
+//            System.out.println("istenen doktor silindi");
+//            a=true;
+//        } else if (a==false) {
+//            System.out.println("gecerli unvan giriniz");
+//            System.out.println();
+//           //doktorBul();
+//
+//        }
+
     }
+
     private static void anaMenu() {
     }
+
     private static void cikis() {
         System.out.println("Sistemden cikis yapildi");
     }

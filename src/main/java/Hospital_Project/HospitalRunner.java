@@ -1,6 +1,5 @@
 package Hospital_Project;
 
-import javax.print.Doc;
 
 import static Hospital_Project.HospitalIslem.hastaneMenusu;
 
@@ -15,6 +14,18 @@ public class HospitalRunner {
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 //    private static String doktorunvan(String hastaDurumu) {
 //
