@@ -3,6 +3,8 @@ package Hospital_Project;
 import javax.xml.crypto.Data;
 import java.util.*;
 
+import static Hospital_Project.HospitalIslem.hastaneMenusu;
+
 public class PatientRunner {
 
     static Scanner input = new Scanner(System.in);
@@ -180,7 +182,7 @@ public class PatientRunner {
 
 
     private static void anaMenu() throws InterruptedException {
-        hastaMenusu();
+        hastaneMenusu();
     }
 
     private static void hastaSilme() {
