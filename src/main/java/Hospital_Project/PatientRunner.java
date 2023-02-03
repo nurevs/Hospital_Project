@@ -9,7 +9,7 @@ public class PatientRunner {
 
     static Scanner input = new Scanner(System.in);
     static Map<String, String> hastaListesiMap = new HashMap<>();
-  //  static int hastaIdNo = 100;
+
     static Map<String, String> hasta = new HashMap<>();
     static Set<Map.Entry<String,String>> setHastalar = hastaListesiMap.entrySet();
 
@@ -21,7 +21,7 @@ public class PatientRunner {
         hastaListesiMap.put("333", "Gulten , Dogan , Diabet");
         hastaListesiMap.put("444", "Furkan , Kesimoglu , Soguk Alginligi");
         hastaListesiMap.put("555", "Seda , Celikors , Migren");
-        hastaListesiMap.put("666", "Mustafa , Yildirim , Kalp Hastaliklari ");
+        hastaListesiMap.put("666", "Mustafa , Hasyildirim , Kalp Hastaliklari ");
 
 
 
@@ -57,6 +57,7 @@ public class PatientRunner {
         }
 
             if (tercih > 0 || tercih < 7) {
+
                 switch (tercih) {
                     case 1:
                         hastaEkle();
@@ -73,7 +74,7 @@ public class PatientRunner {
                         break;
                     case 4:
                         hastaSilme();
-                        //  hastaListesi();
+                         hastaListesi();
                         hastaMenusu();
                         break;
                     case 5:
@@ -89,11 +90,14 @@ public class PatientRunner {
                         break;
                     default:
                         System.out.println("1-7 arasi deger giriniz.");
-
+                    break;
                 }
             } else
                 throw new InputMismatchException();
                  hastaMenusu();
+
+
+
 
 
 
@@ -130,22 +134,27 @@ public class PatientRunner {
                     case 1:
                         aciliyet = false;
                         System.out.println("Durumunuz acil degil");
+                        hastaMenusu();
                         break;
                     case 2:
                         aciliyet = false;
                         System.out.println("Durumunuz acil degil");
+                        hastaMenusu();
                         break;
                     case 3:
                         aciliyet = false;
                         System.out.println("Durumunuz acil degil");
+                        hastaMenusu();
                         break;
                     case 4:
                         aciliyet = true;
                         System.out.println("Durumunuz acil ");
+                        hastaMenusu();
                         break;
                     case 5:
                         aciliyet = true;
                         System.out.println("Durumunuz acil ");
+                        hastaMenusu();
                         break;
                     case 6:
                         hastaMenusu();
@@ -157,11 +166,11 @@ public class PatientRunner {
                         System.out.println("1-7 arasi deger giriniz.");
 
 
-                }}else
-                throw new InputMismatchException();
+                }//}else
+               // throw new InputMismatchException();
 
 
-       // }while (tercih<7);
+        }while (tercih<7);
 
 
     }
@@ -183,7 +192,7 @@ public class PatientRunner {
              hastaId = input.nextInt();
         }catch (Exception e){
             System.out.println("Lutfen sayi giriniz");
-            //hastaId++;
+            hastaId++;
         }
 
 
@@ -206,12 +215,12 @@ public class PatientRunner {
         Set<String> hastaBul=hastaListesiMap.keySet();
 
         for (int i=0;i< DataBank.hastaIDleri.length;i++) {
-            if (hastaID.equalsIgnoreCase(DataBank.hastaIDleri[i])){
-                System.out.println("Aradiginiz hastanin isim ve soyismini: "+ DataBank.hastaIsimleri[i]+" "+DataBank.hastaSoyIsimleri[i]);
-            }else if(hastaID!=DataBank.hastaIDleri[i]){
-                System.out.println("Girdiginiz Id hastalar icerisinde yok...");
-                break;
-            }
+
+                if (hastaID.equals(DataBank.hastaIDleri[i])){
+                    System.out.println("Aradiginiz hastanin isim ve soyismini: "+ DataBank.hastaIsimleri[i]+" "+DataBank.hastaSoyIsimleri[i]);
+                }
+
+
         }
 
     }
@@ -227,61 +236,19 @@ public class PatientRunner {
         String arananID = input.next();
 
 
-        Hospital hospitalObj = new Hospital();
-        Patient patien1 = new Patient();
 
-        for (Map.Entry<String, String> w : setHastalar) {
-            String keyValue = w.getKey();
-            if (arananID.equalsIgnoreCase(w.getKey())) {
-                String silinecekValue = hastaListesiMap.get(arananID);
-                String sonucValue = hastaListesiMap.remove(arananID);
-
-                boolean kontrol = silinecekValue.equalsIgnoreCase(sonucValue);
-                if (kontrol) {
-                    System.out.println("Kayit silindi.");
-                    System.out.println("Hasta silmeye devam etmek icin 1'e \n Menuye donmek icin 2'ye basiniz");
-                    int geri = input.nextInt();
-                    if (geri == 2) {
-                        anaMenu();
-                    } else if (geri == 1) {
-                        hastaSilme();
-                    }
-                }
-            } else {
-                System.out.println("Girdiginiz ID´ye sahip hasta bulunamadi.");
-                hastaSilme();
-            }
+        if(hastaListesiMap.containsKey(arananID)){
+            hastaListesiMap.remove(arananID);
+            System.out.println("hasta silindi.");
+        }else {
+            System.out.println("Hasta yok");
         }
+
+        System.out.println("Guncel hasta listesi");
+
+
     }
 
-//        List<Patient> hastaListe=new ArrayList<>();
-//        boolean remove=false;
-//
-//        for(Patient w:hastaListe){
-//
-//            if(w.getHastaID()==hastaIdNo){
-//                remove=true;
-//                hastaListe.remove(w);
-//                break;
-//            }
-//
-//        }
-//        System.out.println("Islem sonucu= "+ remove);
-//
-//        for(int i=0;i<hastaListesiMap.size();i++){
-//
-//            if(arananunvan.equals(hastaListesiMap.keySet())){
-//                hastaListesiMap.remove(i);
-//                System.out.println(hastaListesiMap);
-//                // System.out.println(DataBank.hastaIDleri[i] + " hasta silindi");
-//                break;
-//
-//            }
-//
-//        }
-
-
-  //  }
 
     private static void cikis() {
         System.out.println("Sistemden cikis yapildi");

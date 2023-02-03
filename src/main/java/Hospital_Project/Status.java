@@ -5,10 +5,10 @@ public class Status {
     private boolean aciliyet;
 
 
-    public Status(String aktuelDurum, boolean aciliyet) {
-        this.aktuelDurum = aktuelDurum;
-        this.aciliyet = aciliyet;
-    }
+//    public Status(String aktuelDurum, boolean aciliyet) {
+//        this.aktuelDurum = aktuelDurum;
+//        this.aciliyet = aciliyet;
+//    }
 
     public String getAktuelDurum() {
         return aktuelDurum;

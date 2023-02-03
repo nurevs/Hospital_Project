@@ -1,5 +1,6 @@
 package Hospital_Project;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class HospitalIslem {
@@ -13,8 +14,15 @@ public class HospitalIslem {
                 "\n ===>Doktor menusu icin 1'e "+
                 "\n ===>Hasta menusu icin 2'e "+
                 "\n ===>Cikis icin 0'a basin");
-        int secim=input.nextInt();
+        int secim=0;
+        try{
+            secim=input.nextInt();
+        }catch(Exception e){
+            System.out.println("Lütfen gecerli bir sayı giriniz");
+        }
 
+
+        if (secim > -1 || secim < 3) {
         switch (secim){
             case 1:
                 DoctorRunner.doktorMenu();
@@ -26,6 +34,9 @@ public class HospitalIslem {
                 cikis();
                 break;
         }
+        } else
+            throw new InputMismatchException();
+            hastaneMenusu();
 
     }
 

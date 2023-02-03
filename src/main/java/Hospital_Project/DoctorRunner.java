@@ -12,7 +12,7 @@ public class DoctorRunner {
 
     static Scanner input = new Scanner(System.in);
     static Map<String, String> doktorListesiMap = new HashMap<>();
-    //  static List <String >doktorListesi = new ArrayList<>();
+
 
     public static void doktorListesiMap() {
 
@@ -22,6 +22,7 @@ public class DoctorRunner {
         doktorListesiMap.put("Cocuk doktoru", "Marry, Jacob");
         doktorListesiMap.put("Dahiliye", "Alan, Pedro");
         doktorListesiMap.put("Kardiolog", "Mahesh, Tristen");
+
         Set set = doktorListesiMap.entrySet();
 
         Iterator i = set.iterator();
@@ -126,18 +127,16 @@ public class DoctorRunner {
 
 
         System.out.println("*************** DOKTOR BULMA ***************\n");
-        Scanner input = new Scanner(System.in);
-        // Set<String> keySet = doktorListesiMap.keySet();
 
         System.out.println("Aranak isteginiz doktorun unvanini giriniz: ");
         String doktorunvan = input.next().toLowerCase();
-        // Set<String> doktorBul=doktorListesiMap.keySet();
+
 
         for (int i = 0; i < DataBank.unvanlar.length; i++) {
             if (doktorunvan.equalsIgnoreCase(DataBank.unvanlar[i])) {
                 System.out.println("Aradiginiz doktorun isim ve soyismi: " + DataBank.doctorIsimleri[i] + " " + DataBank.doctorSoyIsimleri[i]);
             }else if(doktorunvan!=DataBank.unvanlar[i]){
-                System.out.println("Girdiginiz unvan doktorlar icerisinde yok...");
+                System.out.println("Girdiginiz unvandaki doktor liste icerisinde yok...");
                 break;
             }
         }
@@ -149,79 +148,15 @@ public class DoctorRunner {
         String arananunvan = input.nextLine();
         Set<String> keySet = doktorListesiMap.keySet();
 
-//        Hospital hospitalObj = new Hospital();
-//
-//        for (Map.Entry<String, String> w : hastaListesiMap.entrySet()) {
-//            String keyValue = w.getKey();
-//            if (arananunvan.equals(w.getKey())) {
-//                String silinecekValue = hastaListesiMap.get(arananunvan);
-//                String sonucValue = hastaListesiMap.remove(arananunvan);
-//
-//                boolean kontrol = silinecekValue.equalsIgnoreCase(sonucValue);
-//                if (kontrol) {
-//                    System.out.println("Kayit silindi.");
-//                    System.out.println("Hasta silmeye devam etmek icin 1'e \n Menuye donmek icin 2'ye basiniz");
-//                    int geri = input.nextInt();
-//                    if (geri == 2) {
-//                        DoctorRunner.anaMenu();
-//                    } else if (geri == 1) {
-//                        hastaSil();
-//                    }
-//                }
-//            } else {
-//                System.out.println("Girdiginiz ID´ye sahip hasta bulunamadi.");
-//                hastaSil();
-//            }
-//        }
+        if(doktorListesiMap.containsKey(arananunvan)){
+            doktorListesiMap.remove(arananunvan);
+            System.out.println("doktor silindi.");
+        }else {
+            System.out.println("Doktor yok");
+        }
 
-//       List<Patient> hastaListe=new ArrayList<>();
-//       boolean remove=false;
-//
-//        for(Patient w:hastaListe){
-//
-//            if(w.getHastaID()==hastaIdNo){
-//                remove=true;
-//                hastaListe.remove(w);
-//
-//            }
-//
-//        }
-//        System.out.println("Islem sonucu= "+ remove);
-
-//        System.out.println("Suanki doktor listesi: ");
-//        for (int i=0;i<DataBank.doctorIsimleri.length;i++) {
-//            System.out.print(DataBank.doctorIsimleri[i] + " ");
-//        }
-//            System.out.println();
-//            for (int j = 0; j < DataBank.doctorSoyIsimleri.length; j++) {
-//                System.out.print(DataBank.doctorSoyIsimleri[j]+" ");
-//            }
-//            for (int k=0;k< DataBank.unvanlar.length;k++) {
-//                System.out.println(DataBank.unvanlar[k]+" ");
-//            }
-
-
-//        for (int i = 0; i < doktorListesiMap.size(); i++) {
-//            if (arananunvan.equals(keySet)) {
-//                keySet.remove(arananunvan);
-//                System.out.println(arananunvan + " unvandaki doktor silinmistir.");
-//            }
-//            doktorListesiMap.put(i,arananunvan);
-//        }
-
-
-//        boolean a=false;
-//        if (doktorListesi.containsKey(arananunvan)) {
-//            doktorListesi.remove(arananunvan);
-//           doktorListesiMap();
-//            System.out.println("istenen doktor silindi");
-//            a=true;
-//        } else if (a==false) {
-//            System.out.println("gecerli unvan giriniz");
-//            System.out.println();
-//           //doktorBul();
-//
-//        }
+       // System.out.println("Guncel doktor listesi"+ doktorListesiMap);
+        System.out.println("Guncel doktor listesi");
 
         }
 
